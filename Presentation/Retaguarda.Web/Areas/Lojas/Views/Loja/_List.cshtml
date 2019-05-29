@@ -1,0 +1,51 @@
+﻿@model ICollection<LojaListaViewModel>
+
+<table class="table table-striped table-bordered datatable">
+    <colgroup>
+        <col width="150" />
+        <col width="250" />
+        <col width="250" />
+        <col width="120" />
+        <col width="120" />
+        <col width="120" />
+    </colgroup>
+    <thead>
+        <tr>
+            <th>Razão Social</th>
+            <th>Nome Fantasia</th>
+            <th>Responsável</th>
+            <th>CNPJ</th>
+            <th>Ramo</th>
+            <th>Ação</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.RazaoSocial</td>
+                <td>@item.NomeFantasia</td>
+                <td>@item.Responsavel</td>
+                <td>@item.Cnpj</td>
+                <td>@item.Ramo</td>
+                <td class="text-center">
+                    <a class="btn btn-xs btn-default" asp-action="visualizar" asp-route-id="@item.Id">
+                        <i class="fa fa-fw fa-search-plus"></i>
+                    </a>
+                    @if (Html.TemPermissao(FuncionalidadeEnum.Loja, AcaoEnum.Editar))
+                    {
+                        <a class="btn btn-xs btn-default" asp-action="editar" asp-route-id="@item.Id">
+                            <i class="fa fa-fw fa-edit"></i>
+                        </a>
+                    }
+                    @if (Html.TemPermissao(FuncionalidadeEnum.Loja, AcaoEnum.Excluir))
+                    {
+                        <a class="btn btn-xs btn-default" asp-action="excluir" asp-route-id="@item.Id" data-fw-delete-item>
+                            <i class="fa fa-fw fa-trash-o"></i>
+                        </a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

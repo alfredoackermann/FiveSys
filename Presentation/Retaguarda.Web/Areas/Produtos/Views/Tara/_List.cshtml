@@ -1,0 +1,42 @@
+﻿@model ICollection<TaraViewModel>
+
+<table class="table table-striped table-bordered datatable">
+    <colgroup>
+        <col width="350" />
+        <col width="150" />
+        <col width="100" />
+    </colgroup>
+    <thead>
+        <tr>
+            <th>Descrição</th>
+            <th>Peso</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.Descricao</td>
+            <td>@item.Peso</td>
+            <td class="text-center">
+                <a class="btn btn-xs btn-default" asp-action="visualizar" asp-route-id="@item.Id">
+                    <i class="fa fa-fw fa-search-plus"></i>
+                </a>
+                @if (Html.TemPermissao(FuncionalidadeEnum.Tara, AcaoEnum.Editar))
+    {
+            <a class="btn btn-xs btn-default" asp-action="editar" asp-route-id="@item.Id">
+                <i class="fa fa-fw fa-edit"></i>
+            </a>
+}
+                @if (Html.TemPermissao(FuncionalidadeEnum.Tara, AcaoEnum.Excluir))
+    {
+            <a class="btn btn-xs btn-default" asp-action="excluir" asp-route-id="@item.Id" data-fw-delete-item>
+                <i class="fa fa-fw fa-trash-o"></i>
+            </a>
+}
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

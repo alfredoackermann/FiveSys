@@ -1,0 +1,118 @@
+﻿@model ParametroViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var tipos = new SelectList(Model.Tipos, "Key", "Value");
+}
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Formulário de Parâmetro</h5>
+                </div>
+                <div class="ibox-content">
+                    <form class="form-horizontal" asp-action="@base.ViewContext.RouteData.Values["action"]"
+                          data-fw-ajax data-fw-disable-fields="@Json.Serialize(Model.SomenteLeitura)">
+                        <input type="hidden" asp-for="Id" />
+                        <div class="form-group">
+                            <label asp-for="Nome" class="col-lg-2 control-label">Nome<span asp-validation-for="Nome"></span></label>
+                            <div class="col-lg-4">
+                                <input asp-for="Nome"
+                                       type="text"
+                                       placeholder="Identificador"
+                                       class="form-control"
+                                       maxlength="50"
+                                       data-val="true"
+                                       data-val-required="Obrigatório" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label" asp-for="Descricao">Descrição<span asp-validation-for="Descricao"></span></label>
+                            <div class="col-lg-9">
+                                <textarea asp-for="Descricao"
+                                          type="text"
+                                          placeholder="Descrição"
+                                          class="form-control"
+                                          maxlength="100"
+                                          data-val="true"
+                                          data-val-required="Obrigatório">
+                                </textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label" asp-for="TipoCodigo">Tipo<span asp-validation-for="TipoCodigo"></span></label>
+                            <div class="col-lg-2">
+                                <select asp-for="TipoCodigo"
+                                        asp-items="tipos"
+                                        class="form-control select2 select2-container--default"
+                                        data-val="true"
+                                        data-val-required="Obrigatório">
+                                    <option value="">Selecione</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label" asp-for="Valor">Valor<span asp-validation-for="Valor"></span></label>
+                            <div class="col-lg-3">
+                                <input asp-for="Valor"
+                                       type="text"
+                                       placeholder="Texto, Data ou Número"
+                                       class="form-control"
+                                       maxlength="20"
+                                       data-val="true"
+                                       data-val-required="Obrigatório" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-offset-2 col-lg-10">
+                                @if (!Model.SomenteLeitura)
+                                {
+                                    <button class="btn btn-sm btn-warning" type="submit">Salvar</button>
+                                }
+                                <a class="btn btn-sm btn-default" href="@Url.Action("Index")">Voltar</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#TipoCodigo').on('change', function () {
+                $('#Valor').val('');
+                AplicarMascara();
+                $('#Valor').focus();
+            });
+
+            function AplicarMascara() {
+                switch ($('#TipoCodigo').val()) {
+                    case "1":   // Data
+                        $('#Valor').unmask();
+                        $('#Valor').datepicker({
+                            format: "dd/mm/yyyy",
+                            autoclose: true
+                        });
+                        break;
+                    case "2":   // Numero
+                        $('#Valor').datepicker('remove');
+                        $('#Valor').mask("##0", { reverse: true });
+                        break;
+                    case "3":   // Texto
+                        $('#Valor').datepicker('remove');
+                        $('#Valor').unmask();
+                        break;
+                }
+            }
+
+            AplicarMascara();
+        });
+    </script>
+}

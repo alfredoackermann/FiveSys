@@ -1,0 +1,28 @@
+﻿@model ICollection<MarcaViewModel>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Lista de Marcas/Fabricantes</h5>
+                    <div class="ibox-tools">
+                        @if (Html.TemPermissao(FuncionalidadeEnum.Marca, AcaoEnum.Cadastrar))
+    {
+                    <a class="btn btn-sm btn-warning" role="button" href="@Url.Action("Cadastrar")">Cadastrar</a>
+}
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="table-responsive">
+                        @Html.Partial("_List", Model)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

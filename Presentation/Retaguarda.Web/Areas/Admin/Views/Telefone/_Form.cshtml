@@ -1,0 +1,57 @@
+﻿@model TelefoneTelaViewModel
+
+@{
+    var registrosReal = Model.Telefones?.Length ?? 0;
+    var registros = (registrosReal == 0 ? 1 : Model.Telefones.Length);
+    var tiposTelefone = new SelectList(Model.TiposTelefone, "Key", "Value");
+}
+
+<div class="form-group">
+    <label class="col-lg-2 control-label">Telefone</label>
+    <div class="col-lg-10 jquery-telefones">
+        @for (var i = 0; i < registros; i++)
+        {
+            string nomeCampo = $"TelaTelefones.Telefones[{i}]";
+            <div class="jquery-campos-telefones @(registrosReal == 0 && !Model.ApenasUmTelefone ? "hidden" : "")">
+                <label asp-for="Telefones[i].TipoCodigo" class="col-lg-1 control-label">Tipo<span asp-validation-for="Telefones[i].TipoCodigo"></span></label>
+                <input type="hidden" asp-for="Telefones[i].Id" name="@($"{nomeCampo}.Id")" />
+                <div class="col-lg-3">
+                    <select asp-for="Telefones[i].TipoCodigo"
+                            asp-items="tiposTelefone"
+                            name="@($"{nomeCampo}.TipoCodigo")"
+                            class="form-control">
+                        <option value="">Selecione</option>
+                    </select>
+
+                </div>
+                <label asp-for="Telefones[i].Numero" class="col-lg-1 control-label">Número<span asp-validation-for="Telefones[i].Numero"></span></label>
+                <div class="col-lg-3">
+                    <input asp-for="Telefones[i].Numero"
+                           type="text"
+                           name="@($"{nomeCampo}.Numero")"
+                           placeholder="Número"
+                           class="form-control jquery-mascara-telefone"
+                           maxlength="15" />
+                </div>
+                <div class="col-lg-4">
+                    @if (!Model.ApenasUmTelefone)
+                    {
+                        <button class="btn btn-sm btn-sucess" data-camposmultiplos-excluir data-camposmultiplos-dados="jquery-campos-telefones" type="button"><i class="fa fa-remove"></i> Excluir Telefone</button>
+                    }
+                </div>
+                @if (!Model.ApenasUmTelefone)
+                {
+                    <div class="col-lg-12"><hr /></div>
+                }
+            </div>
+        }
+    </div>
+</div>
+@if (!Model.ApenasUmTelefone)
+{
+    <div class="form-group">
+        <div class="col-lg-offset-2 col-lg-10">
+            <button class="btn btn-sm btn-sucess" data-camposmultiplos-adicionar data-camposmultiplos-container="jquery-telefones" data-camposmultiplos-dados="jquery-campos-telefones" type="button"><i class="fa fa-plus"></i> Adicionar Novo Telefone</button>
+        </div>
+    </div>
+}

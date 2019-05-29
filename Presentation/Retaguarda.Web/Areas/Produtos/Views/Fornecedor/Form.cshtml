@@ -1,0 +1,203 @@
+﻿@model FornecedorViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+    var tiposPessoa = new SelectList(Model.TiposPessoa, "Key", "Value");
+
+}
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Formulário de Fornecedor</h5>
+                </div>
+                <div class="ibox-content">
+                    <form class="form-horizontal" asp-action="@base.ViewContext.RouteData.Values["action"]"
+                          data-fw-ajax data-fw-disable-fields="@Json.Serialize(Model.SomenteLeitura)">
+                        <input type="hidden" asp-for="Id" />
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label" asp-for="Numero">
+                                Fornecedor<span asp-validation-for="Numero"></span>
+                            </label>
+                            <div class="col-lg-2">
+                                <input asp-for="Numero"
+                                       type="text"
+                                       placeholder="Número"
+                                       data-mask="########"
+                                       data-mask-reverse="true"
+                                       class="form-control" />
+                            </div>
+                            <label asp-for="Nome" class="col-lg-2 control-label">Nome<span asp-validation-for="Nome"></span></label>
+                            <div class="col-lg-6">
+                                <input asp-for="Nome"
+                                       type="text"
+                                       placeholder="Nome"
+                                       class="form-control"
+                                       maxlength="100"
+                                       data-val="true"
+                                       data-val-required="Obrigatório" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label" asp-for="Cadastro">Data de Cadastro<span asp-validation-for="Cadastro"></span></label>
+                            <div class="col-lg-2">
+                                <div class="input-group date">
+                                    <input asp-for="Cadastro"
+                                           type="text"
+                                           placeholder="Cadastro"
+                                           class="form-control"
+                                           maxlength="10"
+                                           data-val="true"
+                                           data-mask="##/##/####"
+                                           data-mask-reverse="true"
+                                           readonly />
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <label asp-for="NomeFantasia" class="col-lg-2 control-label">Nome Fantasia<span asp-validation-for="NomeFantasia"></span></label>
+                            <div class="col-lg-6">
+                                <input asp-for="NomeFantasia"
+                                       type="text"
+                                       placeholder="NomeFantasia"
+                                       class="form-control"
+                                       maxlength="100" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Banco" class="col-lg-2 control-label">Banco<span asp-validation-for="Banco"></span></label>
+                            <div class="col-lg-2">
+                                <input asp-for="Banco"
+                                       type="text"
+                                       placeholder="Banco"
+                                       class="form-control"
+                                       data-mask="########"
+                                       data-mask-reverse="true" />
+                            </div>
+                            <label asp-for="Agencia" class="col-lg-2 control-label">Agência<span asp-validation-for="Agencia"></span></label>
+                            <div class="col-lg-2">
+                                <input asp-for="Agencia"
+                                       type="text"
+                                       placeholder="Agencia"
+                                       class="form-control"
+                                       data-mask="########"
+                                       data-mask-reverse="true" />
+                            </div>
+                            <label asp-for="Conta" class="col-lg-2 control-label">Conta<span asp-validation-for="Conta"></span></label>
+                            <div class="col-lg-2">
+                                <input asp-for="Conta"
+                                       type="text"
+                                       placeholder="Conta"
+                                       class="form-control"
+                                       data-mask="########"
+                                       data-mask-reverse="true" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Cnae" class="col-lg-2 control-label">Cnae<span asp-validation-for="Cnae"></span></label>
+                            <div class="col-lg-2">
+                                <input asp-for="Cnae"
+                                       type="text"
+                                       placeholder="Nome"
+                                       class="form-control"
+                                       maxlength="30" />
+                            </div>
+                            <label asp-for="HomePage" class="col-lg-2 control-label">HomePage<span asp-validation-for="HomePage"></span></label>
+                            <div class="col-lg-6">
+                                <input asp-for="HomePage"
+                                       type="text"
+                                       placeholder="HomePage"
+                                       class="form-control"
+                                       maxlength="255" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="TipoPessoaCodigo" class="col-lg-2 control-label">Tipo de Pessoa<span asp-validation-for="TipoPessoaCodigo"></span></label>
+                            <div class="col-lg-2">
+                                <select asp-for="TipoPessoaCodigo"
+                                        asp-items="tiposPessoa"
+                                        class="form-control select2 select2-container--default"
+                                        data-val="true"
+                                        data-val-required="Obrigatório">
+                                    <option value="">Selecione</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-2 col-lg-offset-1 checkbox checkbox-warning">
+                                <input asp-for="AssistenciaTecnica"
+                                       type="checkbox" />
+                                <label asp-for="AssistenciaTecnica">
+                                    Assistência Técnica
+                                    <span asp-validation-for="AssistenciaTecnica"></span>
+                                </label>
+                            </div>
+                        </div>
+                        @{ Html.RenderPartial("_PessoaFisica.cshtml", Model); }
+                        @{ Html.RenderPartial("_PessoaJuridica.cshtml", Model); }
+
+                        <hr />
+                        @{ Html.RenderPartial("/Areas/Admin/Views/Endereco/_Form.cshtml", Model.TelaEnderecos); }
+                        <hr />
+                        <div class="form-group">
+                            <label asp-for="Obs" class="col-lg-2 control-label">Obs<span asp-validation-for="Obs"></span></label>
+                            <div class="col-lg-10">
+                                <input asp-for="Obs"
+                                       type="text"
+                                       placeholder="Obs"
+                                       class="form-control"
+                                       maxlength="100" />
+                            </div>
+                        </div>
+                        <hr />
+                        @{ Html.RenderPartial("/Areas/Admin/Views/Telefone/_Form.cshtml", Model.TelaTelefones); }
+                        <hr />
+                        @{ Html.RenderPartial("/Areas/Admin/Views/Email/_Form.cshtml", Model.TelaEmails); }
+                        <hr />
+                        <div class="form-group">
+                            <div class="col-lg-offset-2 col-lg-10">
+                                @if (!Model.SomenteLeitura)
+                                {
+                                    <button class="btn btn-sm btn-warning" type="submit">Salvar</button>
+                                }
+                                <a class="btn btn-sm btn-default" href="@Url.Action("Index")">Voltar</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/camposmultiplos.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#TipoPessoaCodigo').on('change', function () {
+                ExibirCampos();
+            });
+
+            function ExibirCampos() {
+                switch ($('#TipoPessoaCodigo').val()) {
+                    case "1":   // Fisica
+                        $('.jquery-pessoa-fisica').removeClass('hidden');
+                        $('.jquery-pessoa-juridica').addClass('hidden');
+                        break;
+                    case "2":   // Juridica
+                        $('.jquery-pessoa-juridica').removeClass('hidden');
+                        $('.jquery-pessoa-fisica').addClass('hidden');
+                        break;
+                    default:
+                        $('.jquery-pessoa-juridica').addClass('hidden');
+                        $('.jquery-pessoa-fisica').addClass('hidden');
+                }
+            }
+
+            ExibirCampos();
+        });
+    </script>
+}

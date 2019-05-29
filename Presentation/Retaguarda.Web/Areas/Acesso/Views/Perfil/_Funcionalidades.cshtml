@@ -1,0 +1,47 @@
+﻿@model PerfilViewModel
+
+@{
+    var funcionalidades = Model.Funcionalidades;
+    var acoes = Model.Acoes;
+}
+
+<table class="table table-striped table-bordered">
+    <colgroup>
+        <col style="width:auto;" />
+        <col style="width:100px;" />
+        <col style="width:100px;" />
+        <col style="width:100px;" />
+        <col style="width:100px;" />
+    </colgroup>
+    <thead>
+        <tr>
+            <th>Funcionalidades</th>
+            @foreach (var acao in acoes)
+            {
+                <th class="text-center">@acao.Value <input type="checkbox" value="@($".acao_{acao.Key}")" class="jquery-marcar-todos" /></th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var funcionalidade in funcionalidades)
+        {
+            var funcionalidadeId = Convert.ToInt16(funcionalidade.Key);
+            <tr>
+                <td><input type="checkbox" value="@($".funcionalidade_{funcionalidade.Key}")" class="jquery-marcar-todos" /> @funcionalidade.Value</td>
+
+                @foreach (var acao in acoes)
+                {
+                    var actions = Model.Permissoes?.FirstOrDefault(x => (int)x.Funcionalidade == funcionalidadeId)?.Acoes;
+                    var actionId = Convert.ToInt32(acao.Key);
+                    var checkedValue = actions > 0 ? (actions & actionId) == actionId : false;
+                    var checkBoxId = $"{funcionalidade.Key}_{acao.Key}";
+
+                    <td class="text-center">
+                        <label for="@checkBoxId"></label>
+                        <input type="checkbox" checked="@checkedValue" value="@acao.Key" id="@(checkBoxId)" name="@funcionalidade.Key" class="@($"funcionalidade_{funcionalidade.Key} acao_{acao.Key}")" />
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>

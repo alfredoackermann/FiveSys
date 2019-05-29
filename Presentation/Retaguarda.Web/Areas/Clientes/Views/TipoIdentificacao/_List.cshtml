@@ -1,0 +1,39 @@
+﻿@model ICollection<TipoIdentificacaoViewModel>
+
+<table class="table table-striped table-bordered datatable">
+    <colgroup>
+        <col width="350" />
+        <col width="50" />
+    </colgroup>
+    <thead>
+        <tr>
+            <th>Descrição</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Descricao</td>
+                <td class="text-center">
+                    <a class="btn btn-xs btn-default" asp-action="visualizar" asp-route-id="@item.Id">
+                        <i class="fa fa-fw fa-search-plus"></i>
+                    </a>
+                    @if (Html.TemPermissao(FuncionalidadeEnum.TipoIdentificacao, AcaoEnum.Editar))
+                    {
+                        <a class="btn btn-xs btn-default" asp-action="editar" asp-route-id="@item.Id">
+                            <i class="fa fa-fw fa-edit"></i>
+                        </a>
+                    }
+                    @if (Html.TemPermissao(FuncionalidadeEnum.TipoIdentificacao, AcaoEnum.Excluir))
+                    {
+                        <a class="btn btn-xs btn-default" asp-action="excluir" asp-route-id="@item.Id" data-fw-delete-item>
+                            <i class="fa fa-fw fa-trash-o"></i>
+                        </a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

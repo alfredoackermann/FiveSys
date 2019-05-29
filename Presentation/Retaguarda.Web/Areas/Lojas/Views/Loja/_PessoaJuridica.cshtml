@@ -1,0 +1,81 @@
+﻿@model LojaViewModel
+
+<div class="form-group jquery-pessoa-juridica">
+    <label class="col-lg-2 control-label" asp-for="Titular">
+        Titular
+        <span asp-validation-for="Titular"></span>
+    </label>
+    <div class="col-lg-3">
+        <input asp-for="Titular"
+               type="text"
+               placeholder="Titular"
+               class="form-control"
+               maxlength="255"
+               data-val="true"
+               data-val-required="Obrigatório" />
+    </div>
+
+    <label asp-for="Cnpj" class="col-lg-1 control-label">
+        CNPJ
+        <span asp-validation-for="Cnpj"></span>
+    </label>
+    <div class="col-lg-3">
+        <input asp-for="Cnpj"
+               type="text"
+               placeholder="CNPJ"
+               class="form-control"
+               maxlength="18"
+               data-mask="00.000.000/0000-00"
+               data-val="true"
+               data-val-required="Obrigatório" />
+    </div>
+
+    <label class="col-lg-1 control-label" asp-for="Fundacao">
+        Fundação
+        <span asp-validation-for="Fundacao"></span>
+    </label>
+    <div class="col-lg-2">
+        <div class="input-group date" data-provide="datepicker">
+            <input asp-for="Fundacao"
+                   type="text"
+                   placeholder="Fundação"
+                   class="form-control"
+                   maxlength="10"
+                   data-val="true"
+                   data-mask="##/##/####"
+                   data-mask-reverse="true"
+                   data-val-required="Obrigatório" />
+            <div class="input-group-addon">
+                <span class="fa fa-calendar"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="form-group jquery-pessoa-juridica">
+    <label asp-for="InscricaoEstadual" class="col-lg-2 control-label">
+        Inscrição Estadual
+        <span asp-validation-for="InscricaoEstadual"></span>
+    </label>
+    <div class="col-lg-2">
+        <input asp-for="InscricaoEstadual"
+               type="text"
+               placeholder="Inscrição Estadual"
+               class="form-control"
+               maxlength="20"
+               data-val="true"
+               data-val-required="Obrigatório" />
+    </div>
+    <label class="col-lg-2 control-label" asp-for="InscricaoMunicipal">
+        Inscrição Municipal
+        <span asp-validation-for="InscricaoMunicipal"></span>
+    </label>
+    <div class="col-lg-2">
+        <input asp-for="InscricaoMunicipal"
+               type="text"
+               placeholder="Inscrição Municipal"
+               class="form-control"
+               maxlength="20"
+               data-val="true"
+               data-val-required="Obrigatório" />
+    </div>
+</div>

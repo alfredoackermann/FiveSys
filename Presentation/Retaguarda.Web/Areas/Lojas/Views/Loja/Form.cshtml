@@ -1,0 +1,315 @@
+﻿@model LojaViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var Ramos = new SelectList(Model.Ramos, "Key", "Value");
+    var Crts = new SelectList(Model.Crts, "Key", "Value");
+}
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Formulário de Loja</h5>
+                </div>
+                <div class="ibox-content">
+                    <form class="form-horizontal" asp-action="@base.ViewContext.RouteData.Values["action"]"
+                          data-fw-ajax data-fw-disable-fields="@Json.Serialize(Model.SomenteLeitura)">
+                        <input type="hidden" asp-for="Id" />
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label" asp-for="Numero">
+                                Loja
+                                <span asp-validation-for="Numero"></span>
+                            </label>
+                            <div class="col-lg-2">
+                                <input asp-for="Numero"
+                                       type="text"
+                                       placeholder="Número"
+                                       data-mask="########"
+                                       data-mask-reverse="true"
+                                       class="form-control" />
+                            </div>
+
+                            <label asp-for="RazaoSocial" class="col-lg-2 col-lg-offset-1 control-label">
+                                Razão Social
+                                <span asp-validation-for="RazaoSocial"></span>
+                            </label>
+                            <div class="col-lg-5">
+                                <input asp-for="RazaoSocial"
+                                       type="text"
+                                       placeholder="Razão Social"
+                                       class="form-control"
+                                       maxlength="100"
+                                       data-val="true"
+                                       data-val-required="Obrigatório" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="NomeFantasia" class="col-lg-2 control-label">
+                                Nome Fantazia
+                                <span asp-validation-for="NomeFantasia"></span>
+                            </label>
+                            <div class="col-lg-4">
+                                <input asp-for="NomeFantasia"
+                                       type="text"
+                                       placeholder="Nome Fantazia"
+                                       class="form-control"
+                                       maxlength="100"
+                                       data-val="true"
+                                       data-val-required="Obrigatório" />
+                            </div>
+
+                            <label asp-for="Responsavel" class="col-lg-1 control-label">
+                                Responsável
+                                <span asp-validation-for="Responsavel"></span>
+                            </label>
+                            <div class="col-lg-5">
+                                <input asp-for="Responsavel"
+                                       type="text"
+                                       placeholder="Responsavel"
+                                       class="form-control"
+                                       maxlength="100" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label" asp-for="Cadastro">
+                                Data de Cadastro
+                                <span asp-validation-for="Cadastro"></span>
+                            </label>
+                            <div class="col-lg-2">
+                                <div class="input-group date">
+                                    <input asp-for="Cadastro"
+                                           type="text"
+                                           placeholder="Data de Cadastro"
+                                           class="form-control"
+                                           data-mask="##/##/####"
+                                           data-mask-reverse="true"
+                                           maxlength="10" readonly />
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <label class="col-lg-2 control-label" asp-for="RamoId">
+                                Ramo
+                                <span asp-validation-for="RamoId"></span>
+                            </label>
+                            <div class="col-lg-3">
+                                <select asp-for="RamoId"
+                                        asp-items="Ramos"
+                                        class="form-control select2 select2-container--default"
+                                        data-val="true"
+                                        data-val-required="Obrigatório">
+                                    <option value="">Selecione</option>
+                                </select>
+                            </div>
+
+                            <label class="col-lg-1 control-label" asp-for="Cnae">
+                                CNAE
+                                <span asp-validation-for="Cnae"></span>
+                            </label>
+                            <div class="col-lg-2">
+                                <input asp-for="Cnae"
+                                       type="text"
+                                       placeholder="Cnae"
+                                       class="form-control"
+                                       maxlength="30" />
+                            </div>
+                        </div>
+                        <hr />
+                        @{ Html.RenderPartial("_PessoaJuridica.cshtml", Model); }
+                        <hr />
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label" asp-for="SeriEnf">
+                                Série NF
+                                <span asp-validation-for="SeriEnf"></span>
+                            </label>
+                            <div class="col-lg-2">
+                                <input asp-for="SeriEnf"
+                                       type="text"
+                                       placeholder="Serie NF"
+                                       class="form-control" />
+                            </div>
+
+                            <label class="col-lg-2 control-label" asp-for="SequenciaLnf">
+                                Sequencial NF
+                                <span asp-validation-for="SequenciaLnf"></span>
+                            </label>
+                            <div class="col-lg-2">
+                                <input asp-for="SequenciaLnf"
+                                       type="text"
+                                       placeholder="Sequencial NF"
+                                       class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label" asp-for="SerieCte">
+                                Série CTE
+                                <span asp-validation-for="SerieCte"></span>
+                            </label>
+                            <div class="col-lg-2">
+                                <input asp-for="SerieCte"
+                                       type="text"
+                                       placeholder="Série CTE"
+                                       class="form-control" />
+                            </div>
+                            <label class="col-lg-2 control-label" asp-for="SequencialCte">
+                                Sequencial CTE
+                                <span asp-validation-for="SequencialCte"></span>
+                            </label>
+                            <div class="col-lg-2">
+                                <input asp-for="SequencialCte"
+                                       type="text"
+                                       placeholder="Sequencial CTE"
+                                       class="form-control" />
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label" asp-for="CrtCodigo">
+                                CRT
+                                <span asp-validation-for="CrtCodigo"></span>
+                            </label>
+                            <div class="col-lg-6">
+                                <select asp-for="CrtCodigo"
+                                        asp-items="Crts"
+                                        class="form-control select2 select2-container--default"
+                                        data-val="true"
+                                        data-val-required="Obrigatório">
+                                    <option value="">Selecione</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-4 col-lg-offset-1 checkbox checkbox-warning">
+                                <input asp-for="MicroempresaEstadual"
+                                       type="checkbox" />
+
+                                <label asp-for="MicroempresaEstadual">
+                                    Micro Empresa Estadual
+                                    <span asp-validation-for="MicroempresaEstadual"></span>
+                                </label>
+
+                            </div>
+                            <div class="col-lg-3 checkbox checkbox-warning">
+                                <input asp-for="ContribuinteIpi"
+                                       type="checkbox" />
+
+                                <label asp-for="ContribuinteIpi">
+                                    Contribuinte IPI
+                                    <span asp-validation-for="ContribuinteIpi"></span>
+                                </label>
+                            </div>
+
+                            <div class="col-lg-4 checkbox checkbox-warning">
+                                <input asp-for="PermiteCreditoIcms"
+                                       type="checkbox" />
+
+                                <label asp-for="PermiteCreditoIcms">
+                                    Permite Crédito ICMS
+                                    <span asp-validation-for="PermiteCreditoIcms"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-4 col-lg-offset-1 checkbox checkbox-warning">
+                                <input asp-for="OptanteSimples"
+                                       type="checkbox" />
+
+                                <label asp-for="OptanteSimples">
+                                    Optante pelo Simples
+                                    <span asp-validation-for="OptanteSimples"></span>
+                                </label>
+                            </div>
+                            <div class="col-lg-3 checkbox checkbox-warning">
+                                <input asp-for="OptanteSuperSimples"
+                                       type="checkbox" />
+
+                                <label asp-for="OptanteSuperSimples">
+                                    Optante Super Simples
+                                    <span asp-validation-for="OptanteSuperSimples"></span>
+                                </label>
+                            </div>
+                            <div class="col-lg-3 checkbox checkbox-warning">
+                                <input asp-for="SubstitutoTributario"
+                                       type="checkbox" />
+
+                                <label asp-for="SubstitutoTributario">
+                                    Substituto Tributario
+                                    <span asp-validation-for="SubstitutoTributario"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="form-group">
+                            <label asp-for="TaxaIpi" class="col-lg-2 control-label">Taxa IPI (%)</label>
+                            <div class="col-lg-2">
+                                <input asp-for="TaxaIpi"
+                                       type="text"
+                                       placeholder="Taxa IPI (%)"
+                                       class="form-control"
+                                       data-mask="#.###,00"
+                                       data-mask-reverse="true" />
+                            </div>
+
+                            <label asp-for="TaxaPis" class="col-lg-2 control-label">Taxa PIS (%)</label>
+                            <div class="col-lg-2">
+                                <input asp-for="TaxaPis"
+                                       type="text"
+                                       placeholder="Taxa PIS (%)"
+                                       class="form-control"
+                                       data-mask="#.###,00"
+                                       data-mask-reverse="true" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Taxacofins" class="col-lg-2 control-label">Taxa COFINS (%)</label>
+                            <div class="col-lg-2">
+                                <input asp-for="Taxacofins"
+                                       type="text"
+                                       placeholder="Taxa COFINS (%)"
+                                       class="form-control"
+                                       data-mask="#.###,00"
+                                       data-mask-reverse="true" />
+                            </div>
+
+                            <label asp-for="SimplesNacional" class="col-lg-2 control-label">Simples Nacional (%)</label>
+                            <div class="col-lg-2">
+                                <input asp-for="SimplesNacional"
+                                       type="text"
+                                       placeholder="Simples Nacional (%)"
+                                       class="form-control"
+                                       data-mask="#.###,00"
+                                       data-mask-reverse="true" />
+                            </div>
+                        </div>
+
+                        <hr />
+                        @{ Html.RenderPartial("/Areas/Admin/Views/Endereco/_Form.cshtml", Model.TelaEnderecos); }
+                        <hr />
+                        @{ Html.RenderPartial("/Areas/Admin/Views/Email/_Form.cshtml", Model.TelaEmails); }
+                        <hr />
+                        @{ Html.RenderPartial("/Areas/Admin/Views/Telefone/_Form.cshtml", Model.TelaTelefones); }
+                        <hr />
+                        <div class="form-group">
+                            <div class="col-lg-offset-2 col-lg-10">
+                                @if (!Model.SomenteLeitura)
+                                {
+                                    <button class="btn btn-sm btn-warning" type="submit">Salvar</button>
+                                }
+                                <a class="btn btn-sm btn-default" href="@Url.Action("Index")">Voltar</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/camposmultiplos.js"></script>
+}

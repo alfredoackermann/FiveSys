@@ -1,0 +1,177 @@
+﻿@model UsuarioViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var StatusList = new SelectList(Model.Situacao, "Key", "Value", 1);
+    var perfis = new SelectList(Model.Perfis, "Key", "Value", 1);
+}
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Formulário de Usuário</h5>
+                </div>
+                <div class="ibox-content">
+                    <form class="form-horizontal" asp-action="@base.ViewContext.RouteData.Values["action"]"
+                          data-fw-ajax data-fw-disable-fields="@Json.Serialize(Model.SomenteLeitura)">
+                        <input type="hidden" asp-for="Id" />
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label" asp-for="Nome">Nome<span asp-validation-for="Nome"></span></label>
+                            <div class="col-lg-6">
+                                <input asp-for="Nome"
+                                       type="text"
+                                       placeholder="Nome"
+                                       class="form-control"
+                                       maxlength="100"
+                                       data-val="true"
+                                       data-val-required="Obrigatório" />
+                            </div>
+                            <label class="col-lg-2 control-label" asp-for="StatusCodigo">Status<span asp-validation-for="StatusCodigo"></span></label>
+                            <div class="col-lg-2">
+                                <select asp-for="StatusCodigo"
+                                        asp-items="StatusList"
+                                        class="form-control select2 select2-container--default">
+                                    <option value="">Selecione</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label" asp-for="Login">Login<span asp-validation-for="Login"></span></label>
+                            <div class="col-lg-6">
+                                <input asp-for="Login"
+                                       type="text"
+                                       placeholder="Login"
+                                       class="form-control"
+                                       maxlength="20"
+                                       data-val="true"
+                                       data-val-required="Obrigatório"
+                                       data-mask="AAAAAAAAAAAAAAAAAAAA" />
+                            </div>
+                            <label asp-for="PerfilId" class="col-lg-2 control-label">Perfil<span asp-validation-for="PerfilId"></span></label>
+                            <div class="col-lg-2">
+                                <select asp-for="PerfilId"
+                                        asp-items="perfis"
+                                        class="form-control select2 select2-container--default"
+                                        data-val="true"
+                                        data-val-required="Obrigatório">
+                                    <option value="">Selecione</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label" asp-for="Admissao">
+                                Data de Admissão
+                                <span asp-validation-for="Admissao"></span>
+                            </label>
+                            <div class="col-lg-2">
+                                <div class="input-group date" data-provide="datepicker">
+                                    <input asp-for="Admissao"
+                                           type="text"
+                                           placeholder="Data de Admissão"
+                                           class="form-control"
+                                           maxlength="10"
+                                           data-mask="##/##/####"
+                                           data-mask-reverse="true" />
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <label class="col-lg-2 control-label" asp-for="Nascimento">
+                                Data de Nascimento
+                                <span asp-validation-for="Nascimento"></span>
+                            </label>
+                            <div class="col-lg-2">
+                                <div class="input-group date" data-provide="datepicker">
+                                    <input asp-for="Nascimento"
+                                           type="text"
+                                           placeholder="Data de Nascimento"
+                                           class="form-control"
+                                           maxlength="10"
+                                           data-mask="##/##/####"
+                                           data-mask-reverse="true" />
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <label asp-for="Comissao" class="col-lg-2 control-label">Comissão</label>
+                            <div class="col-lg-2">
+                                <input asp-for="Comissao"
+                                       type="text"
+                                       placeholder="Comissão"
+                                       class="form-control"
+                                       data-mask="#.###,00"
+                                       data-mask-reverse="true" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Cpf" class="col-lg-2 control-label">
+                                CPF
+                                <span asp-validation-for="Cpf"></span>
+                            </label>
+                            <div class="col-lg-2">
+                                <input asp-for="Cpf"
+                                       type="text"
+                                       placeholder="CPF"
+                                       class="form-control"
+                                       maxlength="11"
+                                       data-mask="000.000.000-00" />
+                            </div>
+                            <label asp-for="Rg" class="col-lg-2 control-label">
+                                Rg
+                                <span asp-validation-for="Rg"></span>
+                            </label>
+                            <div class="col-lg-2">
+                                <input asp-for="Rg"
+                                       type="text"
+                                       placeholder="Rg"
+                                       class="form-control"
+                                       maxlength="15"
+                                       data-mask="00.000.000-0" />
+                            </div>
+
+                            <div class="col-lg-3 col-lg-offset-1 checkbox checkbox-warning">
+                                <input asp-for="ExpirarSenha"
+                                       type="checkbox" />
+
+                                <label asp-for="ExpirarSenha">
+                                    Expirar Senha
+                                    <span asp-validation-for="ExpirarSenha"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <hr />
+                        @{ Html.RenderPartial("/Areas/Admin/Views/Email/_Form.cshtml", Model.TelaEmails); }
+                        <hr />
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label" asp-for="Observacao">Observação<span asp-validation-for="Observacao"></span></label>
+                            <div class="col-lg-10">
+                                <input asp-for="Observacao"
+                                       type="text"
+                                       placeholder="Observação"
+                                       class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-offset-2 col-lg-10">
+                                @if (!Model.SomenteLeitura)
+                                {
+                                    <button class="btn btn-sm btn-warning" type="submit">Salvar</button>
+                                    @*@if (!string.IsNullOrEmpty(Model.Id))
+                                        {
+                                            <button class="btn btn-sm btn-warning" type="submit">Resetar Senha</button>
+                                        }*@
+                                }
+                                <a class="btn btn-sm btn-default" href="@Url.Action("Index")">Voltar</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

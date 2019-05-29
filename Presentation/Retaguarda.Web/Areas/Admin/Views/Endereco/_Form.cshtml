@@ -1,0 +1,137 @@
+﻿@model EnderecoTelaViewModel
+
+@{
+    var registrosReal = Model.Enderecos?.Length ?? 0;
+    var registros = (registrosReal == 0 ? 1 : Model.Enderecos.Length);
+    var ufs = new SelectList(Model.Ufs, "Key", "Value");
+}
+
+<div class="form-group">
+    <label class="col-lg-2 control-label">Endereço</label>
+    <div class="col-lg-10 jquery-enderecos">
+        @for (var i = 0; i < registros; i++)
+        {
+            string nomeCampo = $"TelaEnderecos.Enderecos[{i}]";
+            <div class="jquery-campos-enderecos @(registrosReal == 0 && !Model.ApenasUmEndereco ? "hidden" : "")">
+                <div class="form-group">
+                    <label asp-for="Enderecos[i].Cep" class="col-lg-1 control-label">Cep<span asp-validation-for="Enderecos[i].Cep"></span></label>
+                    <input type="hidden" asp-for="Enderecos[i].Id" name="@($"{nomeCampo}.Id")" />
+                    <div class="col-lg-3">
+                        <div class="input-group">
+                            <input asp-for="Enderecos[i].Cep"
+                                   type="text"
+                                   name="@($"{nomeCampo}.Cep")"
+                                   placeholder="Cep"
+                                   class="form-control jquery-buscar-endereco-cep"
+                                   maxlength="9"
+                                   data-mask="00000-000" />
+                            <span class="input-group-btn">
+                                <button class="btn btn-default jquery-buscar-endereco" type="button"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-lg-offset-5">
+                        @if (!Model.ApenasUmEndereco)
+                        {
+                            <button class="btn btn-sm btn-sucess" data-camposmultiplos-excluir data-camposmultiplos-dados="jquery-campos-enderecos" type="button"><i class="fa fa-remove"></i> Excluir Endereço</button>
+                        }
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Enderecos[i].Localizacao" class="col-lg-2 col-lg-pull-1 control-label">Localização<span asp-validation-for="Enderecos[i].Localizacao"></span></label>
+                    <div class="col-lg-6 col-lg-pull-1">
+                        <input asp-for="Enderecos[i].Localizacao"
+                               type="text"
+                               name="@($"{nomeCampo}.Localizacao")"
+                               placeholder="Localização"
+                               class="form-control jquery-buscar-endereco-localizacao"
+                               maxlength="255" />
+                    </div>
+                    <label asp-for="Enderecos[i].Numero" class="col-lg-2 col-lg-pull-1 control-label">Número<span asp-validation-for="Enderecos[i].Numero"></span></label>
+                    <div class="col-lg-2 col-lg-pull-1">
+                        <input asp-for="Enderecos[i].Numero"
+                               type="text"
+                               name="@($"{nomeCampo}.Numero")"
+                               placeholder="Número"
+                               class="form-control jquery-buscar-endereco-numero"
+                               maxlength="5"
+                               data-mask="00000" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Enderecos[i].Bairro" class="col-lg-1 control-label">Bairro<span asp-validation-for="Enderecos[i].Bairro"></span></label>
+                    <div class="col-lg-3">
+                        <input asp-for="Enderecos[i].Bairro"
+                               type="text"
+                               name="@($"{nomeCampo}.Bairro")"
+                               placeholder="Bairro"
+                               class="form-control jquery-buscar-endereco-bairro"
+                               maxlength="100" />
+                    </div>
+                    <label asp-for="Enderecos[i].Cidade" class="col-lg-1 control-label">Cidade<span asp-validation-for="Enderecos[i].Cidade"></span></label>
+                    <div class="col-lg-3">
+                        <input asp-for="Enderecos[i].Cidade"
+                               type="text"
+                               name="@($"{nomeCampo}.Cidade")"
+                               placeholder="Cidade"
+                               class="form-control jquery-buscar-endereco-cidade"
+                               maxlength="100" />
+                    </div>
+                    <label asp-for="Enderecos[i].UfCodigo" class="col-lg-1 control-label">UF<span asp-validation-for="Enderecos[i].UfCodigo"></span></label>
+                    <div class="col-lg-2">
+                        <select asp-for="Enderecos[i].UfCodigo"
+                                asp-items="ufs"
+                                name="@($"{nomeCampo}.UfCodigo")"
+                                class="form-control jquery-buscar-endereco-ufcodigo">
+                            <option value="">Selecione</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+
+                    <label asp-for="Enderecos[i].Complemento" class="col-lg-2 col-lg-pull-1 control-label">Complemento<span asp-validation-for="Enderecos[i].Complemento"></span></label>
+                    <div class="col-lg-8 col-lg-pull-1">
+                        <input asp-for="Enderecos[i].Complemento"
+                               type="text"
+                               name="@($"{nomeCampo}.Complemento")"
+                               placeholder="Complemento"
+                               class="form-control"
+                               maxlength="100" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Enderecos[i].CodigoMunicipio" class="col-lg-2 col-lg-pull-1 control-label">Código Município<span asp-validation-for="Enderecos[i].CodigoMunicipio"></span></label>
+                    <div class="col-lg-3 col-lg-pull-1">
+                        <input asp-for="Enderecos[i].CodigoMunicipio"
+                               type="text"
+                               name="@($"{nomeCampo}.CodigoMunicipio")"
+                               placeholder="Código Município"
+                               class="form-control jquery-buscar-endereco-CodigoMunicipio"
+                               maxlength="100" />
+                    </div>
+                    <label asp-for="Enderecos[i].Ibge" class="col-lg-1 col-lg-pull-1 control-label">IBGE<span asp-validation-for="Enderecos[i].Ibge"></span></label>
+                    <div class="col-lg-2 col-lg-pull-1">
+                        <input asp-for="Enderecos[i].Ibge"
+                               type="text"
+                               name="@($"{nomeCampo}.Ibge")"
+                               placeholder="IBGE"
+                               class="form-control jquery-buscar-endereco-Ibge"
+                               maxlength="100" />
+                    </div>
+                </div>
+                @if (!Model.ApenasUmEndereco)
+                {
+                    <div class="col-lg-12"><hr /></div>
+                }
+            </div>
+        }
+    </div>
+</div>
+@if (!Model.ApenasUmEndereco)
+{
+    <div class="form-group">
+        <div class="col-lg-offset-2 col-lg-10">
+            <button class="btn btn-sm btn-sucess" data-camposmultiplos-adicionar data-camposmultiplos-container="jquery-enderecos" data-camposmultiplos-dados="jquery-campos-enderecos" type="button"><i class="fa fa-plus"></i> Adicionar Novo Endereco</button>
+        </div>
+    </div>
+}

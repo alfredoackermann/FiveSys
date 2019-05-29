@@ -1,0 +1,228 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Retaguarda.Web", "Presentation\Retaguarda.Web\Retaguarda.Web.csproj", "{8B2F457F-0F8A-44B5-9CCB-13838F7AC219}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Presentation", "_Presentation", "{86BADE24-CB30-4B4C-A2AB-C4C2B0432ECC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{05BBEED4-8C4E-4F53-AD06-933F2EB34D29}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{2C75F8B5-B25C-4B40-A672-464B333BF090}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{7FA7F391-4991-4296-A96C-0954C323CD09}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Retaguarda.Domain.Admin", "Core\Retaguarda.Domain\Retaguarda.Domain.Admin.csproj", "{92083C64-07D2-420A-9029-DA4DF53AD69C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Retaguarda.Application.Admin", "Application\Retaguarda.Application\Retaguarda.Application.Admin.csproj", "{52215E90-9397-4D23-B484-06609093172E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projects", "Projects", "{97762AEF-A167-43B0-892F-4C9EA40D741E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{DF17B378-0863-4190-A003-80BD8FC0A30D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{267E9317-DC14-45D2-B3E4-D88AAC347B50}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared.Domain", "Shared\Shared.Domain\Shared.Domain.csproj", "{A3BE5CBE-D536-49B1-9E94-FC34FDD2A3E4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CrossCutting", "CrossCutting", "{11E946A1-3F2B-47CC-BDC3-05C42AAB201A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{C9C6C2EB-B86C-4F4D-8CBC-87AA69325061}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared.Application", "Shared\Shared.Application\Shared.Application.csproj", "{2764520B-AB65-46E4-80A7-EA57F4134A8E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{3C9953F0-FC47-44DA-B7F6-697947E0752F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared.Data", "Shared\Shared.Infrastructure\Shared.Data.csproj", "{BADA82A2-61BB-46E6-8EA1-8D95067D2512}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Retaguarda.Data.Admin", "Infrastructure\Retarguarda.Data.Admin\Retaguarda.Data.Admin.csproj", "{3CC26884-5AF0-401A-BDF1-78DC32A19333}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared.Tools", "Shared\Shared.Tools\Shared.Tools.csproj", "{2DFCF299-2056-4949-BB4A-AD8DAEBAFF18}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{60405B5F-B966-412D-AEA8-A3374250DEDF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Retaguarda.Application.Admin.Test", "Tests\Retaguarda.Application.Admin.Test\Retaguarda.Application.Admin.Test.csproj", "{B310A7C3-E47F-4994-A5F6-4E967E0F4BFC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Retaguarda.CrossCutting.IoC", "Infrastructure\Retaguarda.CrossCutting.IoC\Retaguarda.CrossCutting.IoC.csproj", "{562FBA34-69DA-4484-87BC-C72661EBB4C0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared.Test", "Shared\Shared.Tests\Shared.Test.csproj", "{F92BF15A-A3F4-4DCB-9CE4-7BE1B0DC7A0A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Retaguarda.Application.Acesso", "Application\Retaguarda.Application.Login\Retaguarda.Application.Acesso.csproj", "{8E5D4994-8771-42E6-B0AB-2FE70756FBEB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CrossCutting", "CrossCutting", "{6D60D4A6-D6E8-495A-B8E9-28351E7F2068}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Retaguarda.CrossCutting.Identity", "Infrastructure\Retaguarda.CrossCutting.Identity\Retaguarda.CrossCutting.Identity.csproj", "{51EF3457-B852-4ADB-B39C-F5282B5BC230}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{3F152518-11DE-4FD5-8778-1303B3B5C8A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Retaguarda.Domain.Acesso", "Core\Retaguarda.Domain.Acesso\Retaguarda.Domain.Acesso.csproj", "{EFC9C9BA-8B17-4401-BE4D-CF0B93748E21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Retaguarda.Data.Acesso", "Infrastructure\Retaguarda.Data.Acesso\Retaguarda.Data.Acesso.csproj", "{ABFD703E-E1CD-4DAF-825D-4653CEACBF03}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8B2F457F-0F8A-44B5-9CCB-13838F7AC219}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B2F457F-0F8A-44B5-9CCB-13838F7AC219}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B2F457F-0F8A-44B5-9CCB-13838F7AC219}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B2F457F-0F8A-44B5-9CCB-13838F7AC219}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92083C64-07D2-420A-9029-DA4DF53AD69C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92083C64-07D2-420A-9029-DA4DF53AD69C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92083C64-07D2-420A-9029-DA4DF53AD69C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92083C64-07D2-420A-9029-DA4DF53AD69C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52215E90-9397-4D23-B484-06609093172E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52215E90-9397-4D23-B484-06609093172E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52215E90-9397-4D23-B484-06609093172E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52215E90-9397-4D23-B484-06609093172E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3BE5CBE-D536-49B1-9E94-FC34FDD2A3E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3BE5CBE-D536-49B1-9E94-FC34FDD2A3E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3BE5CBE-D536-49B1-9E94-FC34FDD2A3E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3BE5CBE-D536-49B1-9E94-FC34FDD2A3E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2764520B-AB65-46E4-80A7-EA57F4134A8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2764520B-AB65-46E4-80A7-EA57F4134A8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2764520B-AB65-46E4-80A7-EA57F4134A8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2764520B-AB65-46E4-80A7-EA57F4134A8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BADA82A2-61BB-46E6-8EA1-8D95067D2512}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BADA82A2-61BB-46E6-8EA1-8D95067D2512}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BADA82A2-61BB-46E6-8EA1-8D95067D2512}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BADA82A2-61BB-46E6-8EA1-8D95067D2512}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CC26884-5AF0-401A-BDF1-78DC32A19333}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CC26884-5AF0-401A-BDF1-78DC32A19333}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CC26884-5AF0-401A-BDF1-78DC32A19333}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CC26884-5AF0-401A-BDF1-78DC32A19333}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DFCF299-2056-4949-BB4A-AD8DAEBAFF18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DFCF299-2056-4949-BB4A-AD8DAEBAFF18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DFCF299-2056-4949-BB4A-AD8DAEBAFF18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DFCF299-2056-4949-BB4A-AD8DAEBAFF18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B310A7C3-E47F-4994-A5F6-4E967E0F4BFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B310A7C3-E47F-4994-A5F6-4E967E0F4BFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B310A7C3-E47F-4994-A5F6-4E967E0F4BFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B310A7C3-E47F-4994-A5F6-4E967E0F4BFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{562FBA34-69DA-4484-87BC-C72661EBB4C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{562FBA34-69DA-4484-87BC-C72661EBB4C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{562FBA34-69DA-4484-87BC-C72661EBB4C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{562FBA34-69DA-4484-87BC-C72661EBB4C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F92BF15A-A3F4-4DCB-9CE4-7BE1B0DC7A0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F92BF15A-A3F4-4DCB-9CE4-7BE1B0DC7A0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F92BF15A-A3F4-4DCB-9CE4-7BE1B0DC7A0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F92BF15A-A3F4-4DCB-9CE4-7BE1B0DC7A0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E5D4994-8771-42E6-B0AB-2FE70756FBEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E5D4994-8771-42E6-B0AB-2FE70756FBEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E5D4994-8771-42E6-B0AB-2FE70756FBEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E5D4994-8771-42E6-B0AB-2FE70756FBEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51EF3457-B852-4ADB-B39C-F5282B5BC230}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51EF3457-B852-4ADB-B39C-F5282B5BC230}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51EF3457-B852-4ADB-B39C-F5282B5BC230}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51EF3457-B852-4ADB-B39C-F5282B5BC230}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFC9C9BA-8B17-4401-BE4D-CF0B93748E21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFC9C9BA-8B17-4401-BE4D-CF0B93748E21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFC9C9BA-8B17-4401-BE4D-CF0B93748E21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFC9C9BA-8B17-4401-BE4D-CF0B93748E21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABFD703E-E1CD-4DAF-825D-4653CEACBF03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABFD703E-E1CD-4DAF-825D-4653CEACBF03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABFD703E-E1CD-4DAF-825D-4653CEACBF03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABFD703E-E1CD-4DAF-825D-4653CEACBF03}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8B2F457F-0F8A-44B5-9CCB-13838F7AC219} = {86BADE24-CB30-4B4C-A2AB-C4C2B0432ECC}
+		{86BADE24-CB30-4B4C-A2AB-C4C2B0432ECC} = {97762AEF-A167-43B0-892F-4C9EA40D741E}
+		{05BBEED4-8C4E-4F53-AD06-933F2EB34D29} = {97762AEF-A167-43B0-892F-4C9EA40D741E}
+		{2C75F8B5-B25C-4B40-A672-464B333BF090} = {97762AEF-A167-43B0-892F-4C9EA40D741E}
+		{7FA7F391-4991-4296-A96C-0954C323CD09} = {97762AEF-A167-43B0-892F-4C9EA40D741E}
+		{92083C64-07D2-420A-9029-DA4DF53AD69C} = {05BBEED4-8C4E-4F53-AD06-933F2EB34D29}
+		{52215E90-9397-4D23-B484-06609093172E} = {7FA7F391-4991-4296-A96C-0954C323CD09}
+		{267E9317-DC14-45D2-B3E4-D88AAC347B50} = {DF17B378-0863-4190-A003-80BD8FC0A30D}
+		{A3BE5CBE-D536-49B1-9E94-FC34FDD2A3E4} = {267E9317-DC14-45D2-B3E4-D88AAC347B50}
+		{11E946A1-3F2B-47CC-BDC3-05C42AAB201A} = {DF17B378-0863-4190-A003-80BD8FC0A30D}
+		{C9C6C2EB-B86C-4F4D-8CBC-87AA69325061} = {DF17B378-0863-4190-A003-80BD8FC0A30D}
+		{2764520B-AB65-46E4-80A7-EA57F4134A8E} = {C9C6C2EB-B86C-4F4D-8CBC-87AA69325061}
+		{3C9953F0-FC47-44DA-B7F6-697947E0752F} = {DF17B378-0863-4190-A003-80BD8FC0A30D}
+		{BADA82A2-61BB-46E6-8EA1-8D95067D2512} = {3C9953F0-FC47-44DA-B7F6-697947E0752F}
+		{3CC26884-5AF0-401A-BDF1-78DC32A19333} = {3F152518-11DE-4FD5-8778-1303B3B5C8A1}
+		{2DFCF299-2056-4949-BB4A-AD8DAEBAFF18} = {11E946A1-3F2B-47CC-BDC3-05C42AAB201A}
+		{B310A7C3-E47F-4994-A5F6-4E967E0F4BFC} = {60405B5F-B966-412D-AEA8-A3374250DEDF}
+		{562FBA34-69DA-4484-87BC-C72661EBB4C0} = {6D60D4A6-D6E8-495A-B8E9-28351E7F2068}
+		{F92BF15A-A3F4-4DCB-9CE4-7BE1B0DC7A0A} = {3C9953F0-FC47-44DA-B7F6-697947E0752F}
+		{8E5D4994-8771-42E6-B0AB-2FE70756FBEB} = {7FA7F391-4991-4296-A96C-0954C323CD09}
+		{6D60D4A6-D6E8-495A-B8E9-28351E7F2068} = {2C75F8B5-B25C-4B40-A672-464B333BF090}
+		{51EF3457-B852-4ADB-B39C-F5282B5BC230} = {6D60D4A6-D6E8-495A-B8E9-28351E7F2068}
+		{3F152518-11DE-4FD5-8778-1303B3B5C8A1} = {2C75F8B5-B25C-4B40-A672-464B333BF090}
+		{EFC9C9BA-8B17-4401-BE4D-CF0B93748E21} = {05BBEED4-8C4E-4F53-AD06-933F2EB34D29}
+		{ABFD703E-E1CD-4DAF-825D-4653CEACBF03} = {3F152518-11DE-4FD5-8778-1303B3B5C8A1}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DF433078-F8E7-4370-9E4D-8ABBCC5CC495}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 16
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://o2d.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Application\\Retaguarda.Application\\Retaguarda.Application.Admin.csproj
+		SccProjectTopLevelParentUniqueName1 = FiveSys.sln
+		SccProjectName1 = Application/Retaguarda.Application
+		SccLocalPath1 = Application\\Retaguarda.Application
+		SccProjectUniqueName2 = Core\\Retaguarda.Domain\\Retaguarda.Domain.Admin.csproj
+		SccProjectTopLevelParentUniqueName2 = FiveSys.sln
+		SccProjectName2 = Core/Retaguarda.Domain
+		SccLocalPath2 = Core\\Retaguarda.Domain
+		SccProjectUniqueName3 = Infrastructure\\Retarguarda.Data.Admin\\Retaguarda.Data.Admin.csproj
+		SccProjectTopLevelParentUniqueName3 = FiveSys.sln
+		SccProjectName3 = Infrastructure/Retarguarda.Data.Admin
+		SccLocalPath3 = Infrastructure\\Retarguarda.Data.Admin
+		SccProjectUniqueName4 = Presentation\\Retaguarda.Web\\Retaguarda.Web.csproj
+		SccProjectTopLevelParentUniqueName4 = FiveSys.sln
+		SccProjectName4 = Presentation/Retaguarda.Web
+		SccLocalPath4 = Presentation\\Retaguarda.Web
+		SccProjectUniqueName5 = Shared\\Shared.Application\\Shared.Application.csproj
+		SccProjectTopLevelParentUniqueName5 = FiveSys.sln
+		SccProjectName5 = Shared/Shared.Application
+		SccLocalPath5 = Shared\\Shared.Application
+		SccProjectUniqueName6 = Shared\\Shared.Domain\\Shared.Domain.csproj
+		SccProjectTopLevelParentUniqueName6 = FiveSys.sln
+		SccProjectName6 = Shared/Shared.Domain
+		SccLocalPath6 = Shared\\Shared.Domain
+		SccProjectUniqueName7 = Shared\\Shared.Infrastructure\\Shared.Data.csproj
+		SccProjectTopLevelParentUniqueName7 = FiveSys.sln
+		SccProjectName7 = Shared/Shared.Infrastructure
+		SccLocalPath7 = Shared\\Shared.Infrastructure
+		SccProjectUniqueName8 = Shared\\Shared.Tools\\Shared.Tools.csproj
+		SccProjectTopLevelParentUniqueName8 = FiveSys.sln
+		SccProjectName8 = Shared/Shared.Tools
+		SccLocalPath8 = Shared\\Shared.Tools
+		SccProjectUniqueName9 = Tests\\Retaguarda.Application.Admin.Test\\Retaguarda.Application.Admin.Test.csproj
+		SccProjectTopLevelParentUniqueName9 = FiveSys.sln
+		SccProjectName9 = Tests/Retaguarda.Application.Admin.Test
+		SccLocalPath9 = Tests\\Retaguarda.Application.Admin.Test
+		SccProjectUniqueName10 = Infrastructure\\Retaguarda.CrossCutting.IoC\\Retaguarda.CrossCutting.IoC.csproj
+		SccProjectTopLevelParentUniqueName10 = FiveSys.sln
+		SccProjectName10 = Infrastructure/Retaguarda.CrossCutting.IoC
+		SccLocalPath10 = Infrastructure\\Retaguarda.CrossCutting.IoC
+		SccProjectUniqueName11 = Shared\\Shared.Tests\\Shared.Test.csproj
+		SccProjectTopLevelParentUniqueName11 = FiveSys.sln
+		SccProjectName11 = Shared/Shared.Tests
+		SccLocalPath11 = Shared\\Shared.Tests
+		SccProjectUniqueName12 = Infrastructure\\Retaguarda.CrossCutting.Identity\\Retaguarda.CrossCutting.Identity.csproj
+		SccProjectTopLevelParentUniqueName12 = FiveSys.sln
+		SccProjectName12 = Infrastructure/Retaguarda.CrossCutting.Identity
+		SccLocalPath12 = Infrastructure\\Retaguarda.CrossCutting.Identity
+		SccProjectUniqueName13 = Application\\Retaguarda.Application.Login\\Retaguarda.Application.Acesso.csproj
+		SccProjectTopLevelParentUniqueName13 = FiveSys.sln
+		SccProjectName13 = Application/Retaguarda.Application.Login
+		SccLocalPath13 = Application\\Retaguarda.Application.Login
+		SccProjectUniqueName14 = Core\\Retaguarda.Domain.Acesso\\Retaguarda.Domain.Acesso.csproj
+		SccProjectTopLevelParentUniqueName14 = FiveSys.sln
+		SccProjectName14 = Core/Retaguarda.Domain.Acesso
+		SccLocalPath14 = Core\\Retaguarda.Domain.Acesso
+		SccProjectUniqueName15 = Infrastructure\\Retaguarda.Data.Acesso\\Retaguarda.Data.Acesso.csproj
+		SccProjectTopLevelParentUniqueName15 = FiveSys.sln
+		SccProjectName15 = Infrastructure/Retaguarda.Data.Acesso
+		SccLocalPath15 = Infrastructure\\Retaguarda.Data.Acesso
+	EndGlobalSection
+EndGlobal

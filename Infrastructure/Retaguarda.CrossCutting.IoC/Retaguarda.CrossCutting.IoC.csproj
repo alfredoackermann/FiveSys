@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <AssemblyName>FiveSys.Retaguarda.Infrastructure.CrossCutting.IoC</AssemblyName>
+    <RootNamespace>FiveSys.Retaguarda.Infrastructure.CrossCutting.IoC</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Application\Retaguarda.Application.Login\Retaguarda.Application.Acesso.csproj" />
+    <ProjectReference Include="..\..\Application\Retaguarda.Application\Retaguarda.Application.Admin.csproj" />
+    <ProjectReference Include="..\..\Core\Retaguarda.Domain.Acesso\Retaguarda.Domain.Acesso.csproj" />
+    <ProjectReference Include="..\..\Core\Retaguarda.Domain\Retaguarda.Domain.Admin.csproj" />
+    <ProjectReference Include="..\Retaguarda.Data.Acesso\Retaguarda.Data.Acesso.csproj" />
+    <ProjectReference Include="..\Retarguarda.Data.Admin\Retaguarda.Data.Admin.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
+      <HintPath>C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.extensions.dependencyinjection.abstractions\2.0.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

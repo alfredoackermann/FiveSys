@@ -1,0 +1,61 @@
+﻿<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+                    <span>
+                        <img alt="image" class="img-circle" src="~/img/user.png">
+                    </span>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="clear">
+                            <span class="text-muted text-xs block"><strong class="font-bold">Example user</strong> <b class="caret"></b></span>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                        <li><a href="#">Sair</a></li>
+                    </ul>
+                </div>
+                <div class="logo-element">
+                    <span style="color: #ff8400">FIVE</span><span style="color: #000">SYS</span>
+                </div>
+            </li>
+            <li class="@Html.IsSelected(area: "Admin")">
+                <a href="index.html"><i class="fa fa-cog"></i> <span class="nav-label">Administração</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li class="@Html.IsSelected(controller: "Parametro")"><a href="@Url.Action("Index", "Parametro", new { area = "admin"})">Parâmetro</a></li>
+                    <li class="@Html.IsSelected(controller: "Ramo")"><a href="@Url.Action("Index", "Ramo", new { area = "admin"})">Ramo</a></li>
+                    <li class="@Html.IsSelected(controller: "Industria")"><a href="@Url.Action("Index", "Industria", new { area = "admin"})">Indústria</a></li>
+                    <li class="@Html.IsSelected(controller: "Usuario")"><a href="@Url.Action("Index", "Usuario", new { area = "admin"})">Usuário</a></li>
+                    <li class="@Html.IsSelected(controller: "Perfil")"><a href="@Url.Action("Index", "Perfil", new { area = "acesso"})">Perfil</a></li>
+                </ul>
+            </li>
+            <li class="@Html.IsSelected(area: "Clientes")">
+                <a href="#"><i class="fa fa-handshake-o"></i> <span class="nav-label">Cliente</span> <span class="fa arrow"></span></a>
+
+                <ul class="nav nav-second-level collapse">
+                    <li class="@Html.IsSelected(controller: "Cliente")"><a href="@Url.Action("Index", "Cliente", new { area = "Clientes"})">Cliente</a></li>
+                    <li class="@Html.IsSelected(controller: "TipoCliente")"><a href="@Url.Action("Index", "TipoCliente", new { area = "Clientes"})">Tipo de Cliente</a></li>
+                    <li class="@Html.IsSelected(controller: "TipoIdenditicacao")"><a href="@Url.Action("Index", "TipoIdentificacao", new { area = "Clientes"})">Tipo de Identificação</a></li>
+                </ul>
+            </li>
+            <li class="@Html.IsSelected(area: "Lojas")">
+                <a href="#"><i class="fa fa-building"></i> <span class="nav-label">Loja</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li class="@Html.IsSelected(controller: "Loja")"><a href="@Url.Action("Index", "Loja", new { area = "Lojas"})">Loja</a></li>
+                </ul>
+            </li>
+
+            <li class="@Html.IsSelected(area: "Produtos")">
+                <a href="#"><i class="fa fa-barcode"></i> <span class="nav-label">Produtos</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li class="@Html.IsSelected(controller: "Fornecedor")"><a href="@Url.Action("Index", "Fornecedor", new { area = "Produtos"})">Fornecedor</a></li>
+                    <li class="@Html.IsSelected(controller: "Marca")"><a href="@Url.Action("Index", "Marca", new { area = "Produtos"})">Marca/Fabricante</a></li>
+                    <li class="@Html.IsSelected(controller: "Tara")"><a href="@Url.Action("Index", "Tara", new { area = "Produtos"})">Tara</a></li>
+                    <li class="@Html.IsSelected(controller: "TipoProduto")"><a href="@Url.Action("Index", "TipoProduto", new { area = "Produtos"})">Tipos de Produtos</a></li>
+                    <li class="@Html.IsSelected(controller: "TipoPreco")"><a href="@Url.Action("Index", "TipoPreco", new { area = "Produtos"})">Tipos de Preço</a></li>
+                    <li class="@Html.IsSelected(controller: "Unidade")"><a href="@Url.Action("Index", "Unidade", new { area = "Produtos"})">Unidade</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>

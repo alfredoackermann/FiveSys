@@ -1,0 +1,31 @@
+﻿@{
+    string action = (string)base.ViewContext.RouteData.Values["action"];
+    string controller = (string)base.ViewContext.RouteData.Values["controller"];
+    string area = (string)base.ViewContext.RouteData.DataTokens["area"];
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>@controller</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("Index", "Home", new { area = ""})">Página Inicial</a>
+            </li>
+            @if (!string.IsNullOrEmpty(area))
+            {
+                <li>
+                    @area
+                </li>
+            }
+            <li>
+                <a href="@Url.Action("Index", controller)">@controller</a>
+            </li>
+            <li class="active">
+                <strong>@(action == "Index" ? "Lista" : action)</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>

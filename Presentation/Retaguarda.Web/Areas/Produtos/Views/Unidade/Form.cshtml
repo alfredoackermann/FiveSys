@@ -1,0 +1,44 @@
+﻿@model UnidadeViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Formulário de Unidades</h5>
+                </div>
+                <div class="ibox-content">
+                    <form class="form-horizontal" asp-action="@base.ViewContext.RouteData.Values["action"]"
+                          data-fw-ajax data-fw-disable-fields="@Json.Serialize(Model.SomenteLeitura)">
+                        <input type="hidden" asp-for="Id" />
+                        <div class="form-group">
+                            <label asp-for="Descricao" class="col-lg-2 control-label">Descricao<span asp-validation-for="Descricao"></span></label>
+                            <div class="col-lg-4">
+                                <input asp-for="Descricao"
+                                       type="text"
+                                       placeholder="Identificador"
+                                       class="form-control"
+                                       maxlength="2"
+                                       data-val="true"
+                                       data-val-required="Obrigatório" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-offset-2 col-lg-10">
+                                @if (!Model.SomenteLeitura)
+                                {
+                                    <button class="btn btn-sm btn-warning" type="submit">Salvar</button>
+                                }
+                                <a class="btn btn-sm btn-default" href="@Url.Action("Index")">Voltar</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

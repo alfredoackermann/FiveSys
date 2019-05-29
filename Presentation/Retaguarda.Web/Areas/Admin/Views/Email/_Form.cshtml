@@ -1,0 +1,47 @@
+﻿@model EmailTelaViewModel
+
+@{
+    var registrosReal = Model.Emails?.Length ?? 0;
+    var registros = (registrosReal == 0 ? 1 : Model.Emails.Length);
+}
+
+<div class="form-group">
+    <label class="col-lg-2 control-label">Email</label>
+    <div class="col-lg-10 jquery-emails">
+        @for (var i = 0; i < registros; i++)
+        {
+            string nomeCampo = $"TelaEmails.Emails[{i}]";
+            <div class="jquery-campos-emails @(registrosReal == 0 && !Model.ApenasUmEmail ? "hidden" : "")">
+                <div class="form-group">
+                    <input type="hidden" asp-for="Emails[i].Id" name="@($"{nomeCampo}.Id")" />
+                    <div class="col-lg-8">
+                        <input asp-for="Emails[i].Endereco"
+                               type="text"
+                               name="@($"{nomeCampo}.Endereco")"
+                               placeholder="Email"
+                               class="form-control"
+                               maxlength="255" />
+                    </div>
+                    <div class="col-lg-4">
+                        @if (!Model.ApenasUmEmail)
+                        {
+                            <button class="btn btn-sm btn-sucess" data-camposmultiplos-excluir data-camposmultiplos-dados="jquery-campos-emails" type="button"><i class="fa fa-remove"></i> Excluir Email</button>
+                        }
+                    </div>
+                </div>
+                @if (!Model.ApenasUmEmail)
+                {
+                    <div class="col-lg-12"><hr /></div>
+                }
+            </div>
+        }
+    </div>
+</div>
+@if (!Model.ApenasUmEmail)
+{
+    <div class="form-group">
+        <div class="col-lg-offset-2 col-lg-10">
+            <button class="btn btn-sm btn-sucess" data-camposmultiplos-adicionar data-camposmultiplos-container="jquery-emails" data-camposmultiplos-dados="jquery-campos-emails" type="button"><i class="fa fa-plus"></i> Adicionar Novo Email</button>
+        </div>
+    </div>
+}

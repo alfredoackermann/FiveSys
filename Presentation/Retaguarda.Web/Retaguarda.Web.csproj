@@ -1,0 +1,61 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <AssemblyName>FiveSys.Presentation.Retaguarda.Web</AssemblyName>
+    <RootNamespace>FiveSys.Presentation.Retaguarda.Web</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Areas\Admin\Views\Usuario\_List.cshtml~RF11c3beb7.TMP" />
+    <None Remove="Properties\PublishProfiles\FiveSys - FTP.pubxml" />
+    <None Remove="Properties\PublishProfiles\FiveSys - Web Deploy.pubxml" />
+    <None Remove="Properties\PublishProfiles\RetaguardaWeb20180309031006 - Web Deploy.pubxml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="3.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Application\Retaguarda.Application.Login\Retaguarda.Application.Acesso.csproj" />
+    <ProjectReference Include="..\..\Application\Retaguarda.Application\Retaguarda.Application.Admin.csproj" />
+    <ProjectReference Include="..\..\Core\Retaguarda.Domain\Retaguarda.Domain.Admin.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Retaguarda.CrossCutting.IoC\Retaguarda.CrossCutting.IoC.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Retaguarda.Data.Acesso\Retaguarda.Data.Acesso.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Retarguarda.Data.Admin\Retaguarda.Data.Admin.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Areas\Admin\Views\Industria\Form.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\Industria\Index.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\Industria\_List.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\Parametro\Form.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\Admin\Views\Parametro\_List.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\PublishProfiles\" />
+  </ItemGroup>
+
+</Project>

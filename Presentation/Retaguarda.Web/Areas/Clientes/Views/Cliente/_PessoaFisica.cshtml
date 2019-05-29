@@ -1,0 +1,125 @@
+﻿@model ClienteViewModel
+
+@{
+    var ufs = new SelectList(Model.Ufs, "Key", "Value");
+    var estadoscivis = new SelectList(Model.EstadosCivis, "Key", "Value");
+    var sexos = new SelectList(Model.Sexos, "Key", "Value");
+}
+
+<div class="form-group jquery-pessoa-fisica hidden">
+    <label asp-for="Cpf" class="col-lg-2 control-label">CPF</label>
+    <div class="col-lg-2">
+        <input asp-for="Cpf"
+               type="text"
+               placeholder="CPF"
+               class="form-control"
+               maxlength="14"
+               data-mask="000.000.000-00" />
+    </div>
+    <label class="col-lg-2 control-label" asp-for="Rg">RG</label>
+    <div class="col-lg-2">
+        <input asp-for="Rg"
+               type="text"
+               placeholder="RG"
+               class="form-control"
+               maxlength="15" />
+    </div>
+    <label asp-for="OrgaoEmissor" class="col-lg-2 control-label">Orgao Emissor</label>
+    <div class="col-lg-2">
+        <input asp-for="OrgaoEmissor"
+               type="text"
+               placeholder="Orgao Emissor"
+               class="form-control"
+               maxlength="3" />
+    </div>
+</div>
+<div class="form-group jquery-pessoa-fisica hidden">
+    <label class="col-lg-2 control-label" asp-for="Emissao">Emissão</label>
+    <div class="col-lg-2">
+        <div class="input-group date" data-provide="datepicker">
+            <input asp-for="Emissao"
+                   type="text"
+                   placeholder="Emissão"
+                   class="form-control"
+                   maxlength="10" />
+            <div class="input-group-addon">
+                <span class="fa fa-calendar"></span>
+            </div>
+        </div>
+    </div>
+    <label class="col-lg-2 control-label" asp-for="UfOrgaoEmissorCodigo">UF Orgão Emissor</label>
+    <div class="col-lg-2">
+        <select asp-for="UfOrgaoEmissorCodigo"
+                asp-items="ufs"
+                class="form-control">
+            <option value="">Selecione</option>
+        </select>
+    </div>
+    <label class="col-lg-2 control-label" asp-for="Nascimento">Nascimento</label>
+    <div class="col-lg-2">
+        <div class="input-group date" data-provide="datepicker">
+            <input asp-for="Nascimento"
+                   type="text"
+                   placeholder="Nascimento"
+                   class="form-control"
+                   maxlength="10" />
+            <div class="input-group-addon">
+                <span class="fa fa-calendar"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="form-group jquery-pessoa-fisica hidden">
+    <label class="col-lg-2 control-label" asp-for="Profissao">Profissão</label>
+    <div class="col-lg-4">
+        <input asp-for="Profissao"
+               type="text"
+               placeholder="Profissão"
+               class="form-control"
+               maxlength="100" />
+    </div>
+    <label class="col-lg-2 control-label" asp-for="Empresa">Empresa</label>
+    <div class="col-lg-4">
+        <input asp-for="Empresa"
+               type="text"
+               placeholder="Empresa"
+               class="form-control"
+               maxlength="100" />
+    </div>
+</div>
+<div class="form-group jquery-pessoa-fisica hidden">
+    <label class="col-lg-2 control-label" asp-for="Filiacao">Filiação</label>
+    <div class="col-lg-6">
+        <input asp-for="Filiacao"
+               type="text"
+               placeholder="Filiacao"
+               class="form-control"
+               maxlength="255" />
+    </div>
+    <label class="col-lg-2 control-label" asp-for="SexoCodigo">Sexo</label>
+    <div class="col-lg-2">
+        <select asp-for="SexoCodigo"
+                asp-items="sexos"
+                class="form-control">
+            <option value="">Selecione</option>
+        </select>
+    </div>
+</div>
+<div class="form-group jquery-pessoa-fisica hidden">
+    <label class="col-lg-2 control-label" asp-for="EstadoCivilCodigo">Estado Civil</label>
+    <div class="col-lg-2">
+        <select asp-for="EstadoCivilCodigo"
+                asp-items="estadoscivis"
+                class="form-control">
+            <option value="">Selecione</option>
+        </select>
+    </div>
+    <label class="col-lg-2 control-label" asp-for="Conjuge">Cônjuge</label>
+    <div class="col-lg-6">
+        <input asp-for="Conjuge"
+               type="text"
+               placeholder="Cônjuge"
+               class="form-control"
+               maxlength="255" />
+    </div>
+</div>
